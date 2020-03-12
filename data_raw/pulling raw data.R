@@ -176,13 +176,14 @@ coronavirus <- dplyr::bind_rows(df_conf2, df_death2, df_rec2) %>%
 head(coronavirus)
 tail(coronavirus)
 
+save(coronavirus,file="coronavirus.rda")
 
-dplyr::filter(Country.Region == "US") %>%
-  dplyr::mutate(country = ifelse(grepl(",", Province.State), TRUE, FALSE))
-usethis::use_data(coronavirus, overwrite = TRUE)
+# dplyr::filter(Country.Region == "US") %>%
+#   dplyr::mutate(country = ifelse(grepl(",", Province.State), TRUE, FALSE))
+# usethis::use_data(coronavirus, overwrite = TRUE)
 
-write.csv(coronavirus, "/Users/ramikrispin/R/packages/coronavirus_csv/coronavirus_dataset.csv", row.names = FALSE)
-writexl::write_xlsx(x = coronavirus, path = "/Users/ramikrispin/R/packages/coronavirus_csv/coronavirus_dataset.xlsx", col_names = TRUE)
+# write.csv(coronavirus, "/Users/ramikrispin/R/packages/coronavirus_csv/coronavirus_dataset.csv", row.names = FALSE)
+# writexl::write_xlsx(x = coronavirus, path = "/Users/ramikrispin/R/packages/coronavirus_csv/coronavirus_dataset.xlsx", col_names = TRUE)
 
 
 
